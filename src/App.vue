@@ -1,35 +1,19 @@
 <template>
-  <div id="vue-app"></div>
+  <div id="vue-app">
+    <Header />
+  </div>
 </template>
 
 <script>
+import './styles/global.css';
+import Header from './components/Header';
+
 document.title = 'Book Explorer';
 
 export default {
   name: 'App',
+  components: {
+    Header,
+  },
 };
 </script>
-
-<style>
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  --bg-general: #f8e2d3;
-  --bg-brand: #ff8000;
-  --text-dark: #5c3e3e;
-  --text-light: #a08479;
-}
-
-body {
-  background: var(--bg-general);
-  font: 400 1rem 'Poppins', sans-serif;
-}
-
-ul {
-  list-style: none;
-}
-</style>
