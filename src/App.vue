@@ -1,28 +1,35 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+  <div id="vue-app"></div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+document.title = 'Book Explorer';
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+};
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-general: #f8e2d3;
+  --bg-brand: #ff8000;
+  --text-dark: #5c3e3e;
+  --text-light: #a08479;
+}
+
+body {
+  background: var(--bg-general);
+  font: 400 1rem 'Poppins', sans-serif;
+}
+
+ul {
+  list-style: none;
 }
 </style>
