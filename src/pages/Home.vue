@@ -6,12 +6,7 @@
         Encontre o livro que você procura. Busque por nome, autor ou
         publicadora.
       </h2>
-      <form @submit.prevent>
-        <input type="text" name="search" />
-        <button type="submit">
-          Buscar Livro
-        </button>
-      </form>
+      <SearchControl />
     </div>
     <div>
       <img src="@/assets/books.png" alt="Livros" id="books" />
@@ -20,21 +15,31 @@
 </template>
 
 <script>
-export default { name: 'Home' };
+import SearchControl from '../components/SearchControl';
+
+export default {
+  name: 'Home',
+  components: { SearchControl },
+};
 </script>
 
-<style>
+<style scoped>
 main {
-  width: min(100%, 1100px);
+  width: min(100%, 1200px);
   display: flex;
   justify-content: center;
-  align-items: center;
+  gap: 1rem;
   padding: 0 1rem;
   margin: auto;
 }
 
-main > * {
-  flex: 1;
+main > :first-child {
+  flex: 4;
+  margin-top: 9%;
+}
+
+main > :last-child {
+  flex: 5;
 }
 
 main div:last-child img {
@@ -53,5 +58,6 @@ h1 {
 h2 {
   font-size: 1.25rem;
   font-weight: 400;
+  margin-bottom: 2rem;
 }
 </style>
