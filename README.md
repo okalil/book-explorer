@@ -1,24 +1,36 @@
-# workout-tracker-app
+# Book Explorer
 
-## Project setup
+O Book Explorer é uma aplicação web para busca de livros por autor, nome ou publicadora.
+
+## Preview
+
+[![Preview](https://i.gyazo.com/4361489ca964caff4225c854c2f30eef.gif)](https://gyazo.com/4361489ca964caff4225c854c2f30eef)
+
+## Tecnologias
+
+- [Vue](https://vuejs.org), framework JS para desenvolver UIs
+- [Axios](https://axios-http.com/), cliente HTTP baseado em promises
+
+## Executar o projeto
+
+### Clone o repositório
+
+```
+git clone <url-do-repositorio>.git
+```
+
+### Instale as dependências
+
 ```
 yarn install
 ```
 
-### Compiles and hot-reloads for development
+### Compila para desenvolvimento
+
 ```
 yarn serve
 ```
 
-### Compiles and minifies for production
-```
-yarn build
-```
+## Autor
 
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Feito com dedicação por Andrew Kalil.
