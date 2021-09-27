@@ -4,6 +4,7 @@ const store = Vue.observable({
   search: {
     query: '',
     results: null,
+    loading: false,
   },
   setSearch(q, r) {
     this.search.query = q;

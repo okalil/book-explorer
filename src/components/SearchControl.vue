@@ -5,6 +5,7 @@
       name="search"
       placeholder="Encontre seu livro aqui."
       autocomplete="off"
+      :value="inputValue"
     />
     <button type="submit">
       Buscar Livro
@@ -18,15 +19,32 @@ import store from '../store';
 
 export default {
   name: 'SearchControl',
+  props: {
+    savedQuery: String,
+  },
+  computed: {
+    inputValue() {
+      return this.savedQuery ?? '';
+    },
+  },
   methods: {
     onSubmit(e) {
       const formData = new FormData(e.target);
       const query = formData.get('search');
 
+      if (!query.trim()) return;
+
+      store.search.loading = true;
+
       api
         .get(`?q=${query}`)
-        .then(r => {
-          store.setSearch(query, r.data.items);
+        .then(r => store.setSearch(query, r.data.items))
+        .then(() => {
+          store.search.loading = false;
+          if (this.$root.currentRoute !== '/search') {
+            this.$root.currentRoute = '/search';
+            window.history.pushState(null, 'Search', '/search');
+          }
         })
         .catch(err => console.log(err));
     },
