@@ -5,7 +5,8 @@
       name="search"
       placeholder="Encontre seu livro aqui."
       autocomplete="off"
-      :value="inputValue"
+      spellcheck="false"
+      :value="savedQuery"
     />
     <button type="submit">
       Buscar Livro
@@ -20,12 +21,7 @@ import store from '../store';
 export default {
   name: 'SearchControl',
   props: {
-    savedQuery: String,
-  },
-  computed: {
-    inputValue() {
-      return this.savedQuery ?? '';
-    },
+    savedQuery: { type: String, default: '' },
   },
   methods: {
     onSubmit(e) {
