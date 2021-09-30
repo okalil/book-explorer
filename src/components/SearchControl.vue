@@ -15,8 +15,7 @@
 </template>
 
 <script>
-import api from '../services/api';
-import store from '../store';
+import { fetchResults } from '../store/search';
 
 export default {
   name: 'SearchControl',
@@ -30,19 +29,12 @@ export default {
 
       if (!query.trim()) return;
 
-      store.search.loading = true;
+      fetchResults(query);
 
-      api
-        .get(`?q=${query}`)
-        .then(r => store.setSearch(query, r.data.items))
-        .then(() => {
-          store.search.loading = false;
-          if (this.$root.currentRoute !== '/search') {
-            this.$root.currentRoute = '/search';
-            window.history.pushState(null, 'Search', '/search');
-          }
-        })
-        .catch(err => console.log(err));
+      if (this.$root.currentRoute !== '/search') {
+        this.$root.currentRoute = '/search';
+        window.history.pushState(null, 'Search', '/search');
+      }
     },
   },
 };

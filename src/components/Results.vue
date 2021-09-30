@@ -32,12 +32,13 @@
 </template>
 
 <script>
+import state from '../store/search';
+
 export default {
   name: 'Results',
-  props: { results: Array },
   computed: {
     computedResults() {
-      const value = this.results.map(({ id, volumeInfo }) => ({
+      const value = state.results().map(({ id, volumeInfo }) => ({
         id,
         ...volumeInfo,
         publishedDate: volumeInfo.publishedDate?.split('-')[0],

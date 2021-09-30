@@ -1,25 +1,27 @@
 <template>
   <main>
     <div>
-      <search-control :savedQuery="query" />
+      <search-control :saved-query="query" />
     </div>
     <loader v-if="loading" />
-    <results v-else-if="results" :results="results" />
+    <results v-else-if="results" />
   </main>
 </template>
 
 <script>
-import store from '../store';
+import state from '../store/search';
 import SearchControl from '../components/SearchControl.vue';
 import Results from '../components/Results.vue';
 import Loader from '../components/Loader.vue';
 
+const { query, loading, results } = state;
+
 export default {
   components: { SearchControl, Results, Loader },
   computed: {
-    query: () => store.search.query,
-    results: () => store.search.results,
-    loading: () => store.search.loading,
+    query,
+    loading,
+    results,
   },
 };
 </script>
